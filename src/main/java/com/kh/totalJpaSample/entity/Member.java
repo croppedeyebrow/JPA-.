@@ -32,12 +32,18 @@ import java.time.LocalDateTime;
 public class Member {
     @Id   //이 테이블의 pk역할, DB테이블의 Primary Key 칼럼과 매핑.
     @GeneratedValue(strategy = GenerationType.AUTO)  //스프링부트가 알고 있는 생성전략에 따라 생성
+    @Column(name = "member_id")
     private Long id;   //고유값으로 Long타입을 하나 만들고 들어가기.
+
+    private String userId;
+
+
     @Column(nullable = false) //NULL을 허용하지 않음.
     // @Column: 매핑할 데이터베이스의 칼럼 이름과 필드 변수의 이름이 다를 경우 매핑하기 위해 사용.
     private String name;
     private String password;
     @Column(unique = true) // 유일한 값이어야 함.
+
     private String email;
     private LocalDateTime regDate;  // 가입일
     @PrePersist

@@ -17,6 +17,8 @@ import java.util.Optional;
 
 //네이밍 규칙에 의해서 API를 작성하면, 틀에 맞는 쿼리문을 하이버네이트(jpa의 구현체)가 구현 해줌.
 //Long이 있는 자리 : pk값의 타입을..아이디 pk값
+//Optional은 값이 존재할 수도 있고, 없을 수도 있는 상황에서 사용,
+//코드에서 NullPointerException과 같은 예외를 방지.
 
 public interface MemberRepository  extends JpaRepository <Member,Long>{
     Optional<Member> findByEmail(String email); //완벽한 카멜표기법으로 만들어야 함.
